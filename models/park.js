@@ -63,6 +63,17 @@ const Park = function(name, ticketPrice){
         return this.totalNumVisYear() * this.ticketPrice
     }
 
+    Park.prototype.removeCertainSpeices = function (speices){
+        let newArr = []
+        for(dino of this.dinosuarsCollection){
+            if(dino.species != speices){
+                newArr.push(dino)
+            }
+        
+        }
+        return this.dinosuarsCollection = newArr
+    }
+
         
 
     

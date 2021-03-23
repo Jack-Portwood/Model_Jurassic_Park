@@ -108,4 +108,16 @@ describe('Park', function() {
 
   });
 
+  it('should remove all dinosaurs of a particular species', function(){
+    park.addDino(trex);
+    park.addDino(trex2);
+    park.addDino(brachiosuars);
+    park.addDino(stegosaurus);
+    park.addDino(velociraptor);
+    park.addDino(dilophosaurus);
+    const actual = park.removeCertainSpeices('t-rex')
+    const expected = [brachiosuars, stegosaurus, velociraptor, dilophosaurus];
+    assert.deepStrictEqual(actual, expected)
+  })
+
 });
