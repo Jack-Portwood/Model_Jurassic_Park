@@ -74,6 +74,21 @@ const Park = function(name, ticketPrice){
         return this.dinosuarsCollection = newArr
     }
 
+    Park.prototype.dietAndNumbers = function (){
+        dietByNum = {}
+
+        for(let dino of this.dinosuarsCollection){
+            if(dietByNum[dino.diet]){
+                dietByNum[dino.diet] += 1
+            }
+            else{
+                dietByNum[dino.diet] = 1
+            } 
+        }  
+        return dietByNum
+
+    }
+
         
 
     

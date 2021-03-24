@@ -17,10 +17,10 @@ describe('Park', function() {
     park = new Park('Jurassic Park', 10);
     trex = new Dinosaur("t-rex", "carnivore", 50);
     trex2 = new Dinosaur("t-rex", "carnivore", 70);
-    brachiosuars = new Dinosaur("brachiosuars", "Herbivor", 40);
-    stegosaurus = new Dinosaur("stegosaurus", "Herbivor", 20);
-    velociraptor = new Dinosaur("velociraptor", "Carnivore", 30);
-    dilophosaurus = new Dinosaur("dilophosaurus", "Omivore", 100);
+    brachiosuars = new Dinosaur("brachiosuars", "herbivore", 40);
+    stegosaurus = new Dinosaur("stegosaurus", "herbivore", 20);
+    velociraptor = new Dinosaur("velociraptor", "carnivore", 30);
+    dilophosaurus = new Dinosaur("dilophosaurus", "omivore", 100);
   })
 
   it('should have a name', function() {
@@ -119,5 +119,19 @@ describe('Park', function() {
     const expected = [brachiosuars, stegosaurus, velociraptor, dilophosaurus];
     assert.deepStrictEqual(actual, expected)
   })
+
+
+  it(
+    "should Provide an object containing each of the diet types and the number of dinosaurs in the park of that diet type", function(){
+      park.addDino(trex);
+      park.addDino(trex2);
+      park.addDino(brachiosuars);
+      park.addDino(stegosaurus);
+      park.addDino(velociraptor);
+      park.addDino(dilophosaurus);
+      const actual = park.dietAndNumbers()
+      const expected = { carnivore: 3, herbivore: 2, omivore:1};
+      assert.deepStrictEqual(actual, expected)
+    });
 
 });
